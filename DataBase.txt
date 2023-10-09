@@ -1,0 +1,53 @@
+CREATE DATABASE student_managementsystem;
+
+CREATE TABLE course (
+    CourseID INT PRIMARY KEY,
+    Credits INT,
+    CourseTitle VARCHAR(255)
+);
+
+CREATE TABLE instructor (
+    InstructorID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE student (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DOB DATE,
+    Gender CHAR(1),
+    Email VARCHAR(100),
+    Phone VARCHAR(20)
+);
+
+CREATE TABLE Enrollment (
+    EnrollmentID INT PRIMARY KEY,
+    InstructorID INT,
+    EnrollmentDate DATE,
+    StudentID INT,
+    CourseID INT,
+    FOREIGN KEY (InstructorID) REFERENCES instructor (InstructorID),
+    FOREIGN KEY (StudentID) REFERENCES student (StudentID),
+    FOREIGN KEY (CourseID) REFERENCES course (CourseID)
+);
+
+CREATE TABLE Feedback (
+    FeedbackID INT PRIMARY KEY,
+    StudentID INT,
+    InstructorName VARCHAR(100),
+    Feedback TEXT,
+    Date DATE,
+    FOREIGN KEY (StudentID) REFERENCES student (StudentID)
+);
+
+CREATE TABLE Score (
+    ScoreID INT PRIMARY KEY,
+    StudentID INT,
+    CourseID INT,
+    ScoreValue DECIMAL(5, 2),  -- You can adjust the data type as needed for scores
+    FOREIGN KEY (StudentID) REFERENCES student (StudentID),
+    FOREIGN KEY (CourseID) REFERENCES course (CourseID)
+);
