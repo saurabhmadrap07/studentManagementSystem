@@ -51,12 +51,11 @@ CREATE TABLE Score (
     ScoreID INT PRIMARY KEY,
     StudentID INT,
     CourseID INT,
-    ScoreValue DECIMAL(5, 2),  -- You can adjust the data type as needed for scores
+    DateOfExam DATE;
+    CreditObtained DECIMAL(5, 2),  -- You can adjust the data type as needed for scores
     FOREIGN KEY (StudentID) REFERENCES student (StudentID),
     FOREIGN KEY (CourseID) REFERENCES course (CourseID)
 );
-
-
 
 
 -- Dummy data for each TABLE
