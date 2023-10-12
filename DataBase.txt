@@ -6,7 +6,7 @@ USE student_managementsystem;
 
 CREATE TABLE Course (
     CourseID INT PRIMARY KEY,
-    Credits INT,
+    Credits INT, 
     CourseTitle VARCHAR(255)
 );
 
@@ -17,7 +17,7 @@ CREATE TABLE Instructor (
     Email VARCHAR(100)
 );
 
-CREATE TABLE Student (
+CREATE TABLE Student (   
     StudentID INT PRIMARY KEY,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
